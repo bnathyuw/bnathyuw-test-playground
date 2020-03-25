@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnathyuw.TestPlayground.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnathyuw.TestPlayground.App", "Bnathyuw.TestPlayground.App\Bnathyuw.TestPlayground.App.csproj", "{A9D681FE-7027-4990-8C7B-743587CAA0F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnathyuw.TestPlayground.App.Tests", "Bnathyuw.TestPlayground.App.Tests\Bnathyuw.TestPlayground.App.Tests.csproj", "{5A1A8EB8-6D21-460B-BAF3-25234728065D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +25,9 @@ Global
 		{A9D681FE-7027-4990-8C7B-743587CAA0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9D681FE-7027-4990-8C7B-743587CAA0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9D681FE-7027-4990-8C7B-743587CAA0F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A1A8EB8-6D21-460B-BAF3-25234728065D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1A8EB8-6D21-460B-BAF3-25234728065D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1A8EB8-6D21-460B-BAF3-25234728065D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1A8EB8-6D21-460B-BAF3-25234728065D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

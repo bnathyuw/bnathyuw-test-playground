@@ -10,7 +10,7 @@ namespace Bnathyuw.TestPlayground.App.Services
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        public IEnumerable<WeatherForecast> GetWeather()
+        public virtual IEnumerable<WeatherForecast> GetWeather()
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
