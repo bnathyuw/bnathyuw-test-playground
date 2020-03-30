@@ -1,6 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnathyuw.TestPlayground.Tests", "Bnathyuw.TestPlayground.Tests\Bnathyuw.TestPlayground.Tests.csproj", "{E9F04A66-AA18-43A1-ABA3-DC2A6209804B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bnathyuw.TestPlayground.App", "Bnathyuw.TestPlayground.App\Bnathyuw.TestPlayground.App.csproj", "{A9D681FE-7027-4990-8C7B-743587CAA0F2}"

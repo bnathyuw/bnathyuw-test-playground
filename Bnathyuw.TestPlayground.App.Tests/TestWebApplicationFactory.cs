@@ -8,9 +8,9 @@ namespace Bnathyuw.TestPlayground.App.Tests
 {
     public class TestWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
-        private WeatherService _weatherService;
+        private IWeatherService _weatherService;
 
-        public TestWebApplicationFactory<TStartup> WithWeatherService(WeatherService weatherService)
+        public TestWebApplicationFactory<TStartup> WithWeatherService(IWeatherService weatherService)
         {
             _weatherService = weatherService;
             return this;

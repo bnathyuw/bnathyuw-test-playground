@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AutoFixture.Xunit2;
@@ -13,11 +11,11 @@ namespace Bnathyuw.TestPlayground.App.Tests
     public class WeatherForecastControllerShould : IClassFixture<TestWebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
-        private readonly WeatherService _weatherService;
+        private readonly IWeatherService _weatherService;
 
         public WeatherForecastControllerShould(TestWebApplicationFactory<Startup> factory)
         {
-            _weatherService = Substitute.For<WeatherService>();
+            _weatherService = Substitute.For<IWeatherService>();
             _client = factory.WithWeatherService(_weatherService).CreateClient();
         }
 

@@ -7,7 +7,8 @@ namespace Bnathyuw.TestPlayground.App
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services) => 
-            services.AddScoped<WeatherService>()
+            services.AddScoped<IWeatherService, WeatherService>()
+                .AddScoped<IClock, Clock>()
                 .AddControllers();
 
         public void Configure(IApplicationBuilder app) =>

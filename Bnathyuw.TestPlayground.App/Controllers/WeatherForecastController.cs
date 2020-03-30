@@ -8,9 +8,9 @@ namespace Bnathyuw.TestPlayground.App.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private readonly WeatherService _weatherService;
+        private readonly IWeatherService _weatherService;
 
-        public WeatherForecastController(WeatherService weatherService) => _weatherService = weatherService;
+        public WeatherForecastController(IWeatherService weatherService) => _weatherService = weatherService;
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get() => _weatherService.GetWeather();
