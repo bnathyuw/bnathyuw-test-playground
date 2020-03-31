@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Extensions.Options;
 
 namespace Bnathyuw.TestPlayground.App.Services
 {
@@ -11,13 +12,15 @@ namespace Bnathyuw.TestPlayground.App.Services
 
     public class WeatherService : IWeatherService
     {
-        private static readonly string[] Summaries = {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly string[] _summaries;
 
         private readonly IClock _clock;
 
-        public WeatherService(IClock clock) => _clock = clock;
+        public WeatherService(IClock clock, IOptionsMonitor<WeatherOptions> weatherOptions)
+        {
+            _clock = clock;
+            _summaries = weatherOptions.CurrentValue.Summaries;
+        }
 
         public virtual IEnumerable<WeatherForecast> GetWeather()
         {
@@ -27,7 +30,7 @@ namespace Bnathyuw.TestPlayground.App.Services
                 {
                     Date = _clock.Now().AddDays(index),
                     TemperatureC = rng.Next(-20, 55),
-                    Summary = Summaries[rng.Next(Summaries.Length)]
+                    Summary = _summaries[rng.Next(_summaries.Length)]
                 })
                 .ToArray();
         }

@@ -3,6 +3,7 @@ using System.Linq;
 using AutoFixture.Xunit2;
 using Bnathyuw.TestPlayground.App.Services;
 using FluentAssertions;
+using Microsoft.Extensions.Options;
 using NSubstitute;
 using Xunit;
 
@@ -10,7 +11,10 @@ namespace Bnathyuw.TestPlayground.App.Tests
 {
     public class WeatherServiceShould
     {
-        private static readonly string[] Descriptions =
+        private const int LowestExpectedTemperature = -20;
+        private const int HighestExpectedTemperature = 55;
+
+        private static readonly string[] Summaries =
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
@@ -21,7 +25,9 @@ namespace Bnathyuw.TestPlayground.App.Tests
         public WeatherServiceShould()
         {
             _clock = Substitute.For<IClock>();
-            _weatherService = new WeatherService(_clock);
+            var weatherOptions = Substitute.For<IOptionsMonitor<WeatherOptions>>();
+            weatherOptions.CurrentValue.Returns(new WeatherOptions {Summaries = Summaries});
+            _weatherService = new WeatherService(_clock, weatherOptions);
         }
 
         [Theory, AutoData]
@@ -44,7 +50,9 @@ namespace Bnathyuw.TestPlayground.App.Tests
         {
             var forecasts = _weatherService.GetWeather();
 
-            forecasts.Should().OnlyContain(f => -20 <= f.TemperatureC && f.TemperatureC <= 55);
+            forecasts.Should().OnlyContain(f =>
+                LowestExpectedTemperature <= f.TemperatureC
+                && f.TemperatureC <= HighestExpectedTemperature);
         }
 
         [Fact]
@@ -52,8 +60,8 @@ namespace Bnathyuw.TestPlayground.App.Tests
         {
             var forecasts = _weatherService.GetWeather();
 
-            forecasts.Should().OnlyContain(f => Descriptions.Contains(f.Summary));
+            forecasts.Should().OnlyContain(f =>
+                Summaries.Contains(f.Summary));
         }
-
     }
 }
